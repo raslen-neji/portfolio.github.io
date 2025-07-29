@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  
+  <nav class="glass-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">RN</span>
+        <span class="logo-text">Portfolio</span>
+      </div>
+      
+      <div class="nav-links">
+        <ul>
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li><a href="#" class="nav-link">Projects</a></li>
+          <li><a href="#" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <h1 id="animatedText">
+    <span class="static-text">Hi! I'm </span>
+    <span class="name-container">
+      <span class="animated-name" id="animatedName"></span>
+    </span>
+    <span class="static-text"> Welcome To My House</span>
+  </h1>
+
+  <div class="avatar-container">
+    <div class="aura"></div>
+    <div class="hair"></div>
+    <div class="face">
+      <div class="glasses">
+        <div class="lens lens-left"></div>
+        <div class="bridge"></div>
+        <div class="lens lens-right"></div>
+      </div>
+      <div class="eyes">
+        <div class="eye">
+          <div class="pupil" id="pupil-left"></div>
+        </div>
+        <div class="eye">
+          <div class="pupil" id="pupil-right"></div>
+        </div>
+      </div>
+      <div class="mouth"></div>
+    </div>
+    <div class="neck"></div>
+  </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
