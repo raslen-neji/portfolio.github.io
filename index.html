@@ -146,55 +146,8 @@
       color: var(--light);
       font-size: 1.3rem;
       cursor: pointer;
-      z-index: 1001;
     }
     
-    /* Mobile Navigation */
-    @media (max-width: 768px) {
-      .nav-btn {
-        display: block;
-      }
-      
-      nav ul {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(15, 15, 19, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-        padding: 2rem 0;
-      }
-      
-      [data-theme="light"] nav ul {
-        background: rgba(255, 255, 255, 0.95);
-      }
-      
-      nav ul.active {
-        right: 0;
-      }
-      
-      nav ul li {
-        margin: 1rem 0;
-      }
-      
-      nav a {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-        display: block;
-        width: 100%;
-        text-align: center;
-      }
-      
-      nav a::after {
-        display: none;
-      }
-    }
-
     /* Hero Section */
     #hero {
       min-height: 100vh;
@@ -321,7 +274,7 @@
       opacity: 0.3;
     }
     
-    /* Sections */
+    /* Enhanced Sections */
     section {
       min-height: 100vh;
       display: flex;
@@ -358,7 +311,7 @@
       box-shadow: 0 4px 8px rgba(74, 108, 247, 0.3);
     }
     
-    /* About Section */
+    /* Enhanced About Section */
     #about {
       background: var(--dark);
     }
@@ -774,7 +727,7 @@
     
     .scroll-section.visible {
       opacity: 1;
-      transform: translateY(0);
+        transform: translateY(0);
     }
     
     /* Particle Background */
@@ -812,6 +765,157 @@
       z-index: 9998;
       transition: all 0.3s ease-out;
       mix-blend-mode: difference;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+      
+      .hero-btns {
+        justify-content: center;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .avatar-container {
+        margin: 0 auto;
+        max-width: 300px;
+      }
+      
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 5%;
+        height: 70px;
+      }
+      
+      .nav-btn {
+        display: block;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(15, 15, 19, 0.95);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        padding: 2rem;
+        transition: var(--transition);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+      }
+      
+      [data-theme="light"] nav ul {
+        background: rgba(255, 255, 255, 0.95);
+      }
+      
+      nav ul.active {
+        right: 0;
+      }
+      
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .avatar-container {
+        max-width: 250px;
+      }
+      
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-text p {
+        font-size: 1rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .image-slider {
+        height: 300px;
+      }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-btns {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .avatar-container {
+        max-width: 220px;
+      }
+      
+      .hero-text h1 {
+        font-size: 1.7rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .about-text {
+        padding: 1.5rem;
+      }
+      
+      .contact-container {
+        gap: 2rem;
+      }
+      
+      .contact-item {
+        gap: 1rem;
+      }
+      
+      .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      
+      .contact-text h3 {
+        font-size: 1rem;
+      }
+      
+      .contact-form {
+        padding: 1.5rem;
+      }
+      
+      .skill-card {
+        padding: 1.5rem;
+      }
+      
+      .project-links {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -855,8 +959,8 @@
         <h1>Welcome to my house where creativity meets technology</h1>
         <p>I create elegant solutions to complex problems with clean, efficient code and intuitive user experiences.</p>
         <div class="hero-btns">
-          <a href="cv.png" class="btn btn-primary" download="cv.png" >
-            <i class="fas fa-download" ></i> Download CV
+          <a href="#" class="btn btn-primary">
+            <i class="fas fa-download"></i> Download CV
           </a>
           <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
@@ -1099,21 +1203,18 @@
     // Mobile Navigation
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const body = document.body;
-
-    navToggle.addEventListener('click', function() {
+    
+    navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
-      this.innerHTML = navMenu.classList.contains('active') ? 
+      navToggle.innerHTML = navMenu.classList.contains('active') ? 
         '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-      body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
-
-    // Close menu when clicking links
+    
+    // Close mobile menu when clicking a link
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         navToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        body.style.overflow = '';
       });
     });
     
